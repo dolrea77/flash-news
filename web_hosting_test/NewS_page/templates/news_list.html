@@ -1,0 +1,59 @@
+
+{% for i in craw %}
+	<div class="card" id="mouse-over-label">
+	<!-- 카드 헤더 -->
+		<div class="card-header">
+			<img src="{{ i.img }}" style="width: 500px; height: 300px;">
+		</div>
+		<!--카드 바디 -->
+		<div class="card-body card-text">
+		<!--카드 바디 헤더 -->
+			<div class="card-body-header">
+				<h3>{{ i.title }}</h3>
+			</div>
+			<!--카드 바디 본문 -->
+			<!-- 모델 결과를 표시할 부분 -->
+				<p>{{ i.summarize }}</p>
+			<!-- 마우스 호버링 버튼 -->
+			<div class="card-button">
+				<button class="custom-btn button btn-2" onclick="window.open('{{ i.src }}')">더 보기</button>
+			</div>
+			<!--카드 바디 푸터 -->
+			<div class="card-body-footer">
+				<hr style="margin-bottom: 2px; opacity: 0.7; border-color: #D3D3D3">
+			</div>
+		</div>
+	</div>
+{% endfor %}
+	<!-- 페이지네이션 -->
+	<div class="pagination">
+		<span class="step-links">
+			{% if craw.has_previous %}
+				<a href="?page=1">&laquo; first</a>
+				<a href="?page={{ craw.previous_page_number }}">previous</a>
+			{% endif %}
+			<span class="current">
+				Page {{ craw.number }} of {{ craw.paginator.num_pages }}.
+			</span>
+			{% if craw.has_next %}
+				<a href="?page={{ craw.next_page_number }}">next</a>
+				<a href="?page={{ craw.paginator.num_pages }}">last &raquo;</a>
+			{% endif %}
+		</span>
+	</div>
+
+
+<script>
+
+	// 인터넷 스크롤 진행률 상태바
+	window.onscroll = function() {createPrograssBar()};
+
+	function createPrograssBar() {
+	  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+	  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+	  var scrolled = (winScroll / height) * 100;
+	  document.getElementById("indicator").style.width = scrolled + "%";
+	}
+
+
+</script>

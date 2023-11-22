@@ -1,0 +1,19 @@
+    .icon-container .cjs_age_list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+    }
+    /* 각 아이템(1줄에 1개씩)의 스타일 */
+    .cjs_age_item {
+        width: calc(33.33% - 10px); /* 1줄에 3개씩 배치하므로 너비를 33.33%로 설정 */
+        margin-bottom: 20px; /* 각 아이콘 아래 간격 설정 */
+        border-radius: 0.2em; /* Rounded corners */
+    }
+    .cjs_channel_title {
+        border-bottom: 1px solid #000; /* 밑줄 스타일 설정 */
+        padding-bottom: 10px; /* 밑줄과 내용 사이의 간격 조정 */
+        margin-bottom: 20px; /* 종합지와 다음 요소 사이의 간격 조정 */
+    }
+    .cjs_age_item img {
+        border-radius: 0.5em;
+    }

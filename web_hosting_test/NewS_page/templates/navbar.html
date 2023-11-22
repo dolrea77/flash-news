@@ -1,0 +1,63 @@
+{% load static %}
+<link href="{% static 'main.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'nav.css' %}" rel="stylesheet" type="text/css">
+    <nav class="black" style="">
+    <div class="underline"></div>
+    <div class="underline"></div>
+    <div class="underline"></div>
+    <a onClick="ul(0)"href="/">홈</a>
+    <a href="{% url 'main_page' %}?category=society" onClick="ul(1)">사회</a>
+    <a href="{% url 'main_page' %}?category=politics"onClick="ul(2)">정치</a>
+    <a href="{% url 'main_page' %}?category=economic" onClick="ul(3)">경제</a>
+    <a href="{% url 'main_page' %}?category=culture" onClick="ul(4)">문화</a>
+    <a href="{% url 'main_page' %}?category=entertain" onClick="ul(5)">연예</a>
+    <a href="{% url 'main_page' %}?category=sports" onClick="ul(6)">스포츠</a>
+    <a href="{% url 'main_page' %}?category=digital" onClick="ul(7)">IT</a>
+</nav>
+<script>
+
+    window.addEventListener('scroll', function() {
+          var navbar = document.querySelector('.black');
+          var menuItems = document.querySelectorAll('.main-menu-con li');
+          var scrollPosition = window.scrollY;
+
+          var stickyPosition = 100;
+
+    if (scrollPosition >= stickyPosition) {
+        navbar.classList.add('fixed-navbar');
+        menuItems.forEach(function(item) {
+            item.style.marginRight = '120px';
+        });
+    } else {
+        navbar.classList.remove('fixed-navbar');
+        menuItems.forEach(function(item) {
+            item.style.marginRight = '0'; // 마진 제거
+        });
+      }
+    });
+    // 언더라인 바 기능
+    function ul(index) {
+        console.log('click!' + index);
+
+        var underlines = document.querySelectorAll(".underline");
+        var navButtons = document.querySelectorAll("nav a");
+
+        if (index >= 0 && index < navButtons.length) {
+            var buttonWidth = navButtons[index].offsetWidth; // 버튼의 너비 가져오기
+            var buttonOffsetLeft = navButtons[index].offsetLeft; // 버튼의 왼쪽 위치 가져오기
+
+            for (var i = 0; i < underlines.length; i++) {
+                underlines[i].style.width = buttonWidth + "px"; // 언더라인의 너비 설정
+                underlines[i].style.transform = 'translate3d(' + buttonOffsetLeft + 'px,0,0)'; // 언더라인의 위치 설정
+            }
+
+            // 모든 링크에서 'active' 클래스 제거
+            for (var i = 0; i < navButtons.length; i++) {
+                navButtons[i].classList.remove("active");
+            }
+
+            // 클릭한 링크에 'active' 클래스 추가
+            navButtons[index].classList.add("active");
+        }
+    }
+</script>

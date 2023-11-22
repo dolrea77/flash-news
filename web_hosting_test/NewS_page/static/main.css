@@ -1,0 +1,363 @@
+    /*메인 타이틀*/
+    .nine h1 {
+        text-align:center; font-size:70px; text-transform:uppercase; color:#222; letter-spacing:1px;
+        font-family:"Playfair Display", serif; font-weight:bold;
+    }
+    .nine h1 span {
+        margin-top: 5px;
+        font-size:15px; color:#444; word-spacing:1px; font-weight:normal; letter-spacing:2px;
+        text-transform: uppercase; font-family:"Raleway", sans-serif; font-weight:500;
+
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        grid-template-rows: 27px 0;
+        grid-gap: 20px;
+        align-items: center;
+    }
+
+    .nine h1 span:after,.nine h1 span:before {
+        content: " ";
+        display: block;
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        height: 5px;
+        background-color:#f8f8f8;
+    }
+
+    /* 로고 컨테이너 */
+    .main-header-logo {
+        text-align: center; /* 부모 요소 안에서 텍스트 정렬을 가운데로 설정합니다. */
+    }
+    .main-header-logo img {
+        display: block; /* 이미지를 블록 요소로 설정하여 가운데 정렬을 용이하게 합니다. */
+        margin: 0 auto; /* 좌우 여백을 자동으로 설정하여 가운데 정렬합니다. */
+    }
+
+    @media(min-width: 600px){ /* 사이트 창 크기에 따라 보여지는 카드 리스트 갯수 변형 */
+    /* 메인 컨테이너 */
+    .container {
+        text-align: center; /* 부모 요소 안에서 텍스트 정렬을 가운데로 설정*/
+    }
+    .main-header-logo {
+        display: inline-block; /* 블록 요소로 설정하여 가운데 정렬 */
+    }
+    .main-header-logo img {
+        display: block; /* 이미지를 블록 요소로 설정하여 가운데 정렬 */
+        margin: 0 auto; /* 좌우 여백을 자동으로 설정하여 가운데 정렬 */
+    }
+	.card-list {
+        display: flex;
+        flex-wrap: wrap; // 넘치는 카드 아래로 넘기기
+        margin: 0 -1rem; // 카드 바깥 쪽 공간 없애기
+
+    }
+    .card-item {
+        width: 50%; // 카드 2단 배치
+        padding: 0 1rem; // 카드 사이 간격
+    }
+	}
+	@media(min-width: 1200px){
+		.card-item {
+			width: 33.33333%; // 카드 3단 배치
+		}
+	}
+	/* 뉴스 카드 설정 */
+	.card {
+        height: 615px;
+        width: 475px;
+        border-radius: 15px;
+        display: inline-block;
+        margin-top: 30px;
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-bottom: 30px;
+        position: relative;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        overflow: hidden;
+	}
+	/*카드 마우스 호버링*/
+	.card-header {
+		-webkit-transition: 0.5s; /*사파리 & 크롬*/
+        -moz-transition: 0.5s;/*파이어폭스*/
+        -ms-transition: 0.5s;	/*인터넷 익스플로러*/
+        -o-transition: 0.5s;/*오페라*/
+        transition: 0.7s;
+		width: 100%;
+		height: 280px;
+		border-radius: 15px 15px 0 0;
+		background-image: url("images/korea.jpeg");
+		background-size: 100% 280px;
+		background-repeat: no-repeat;
+	}
+	/*카드 호버링 후 뒷 배경과 스크롤 고정 위치*/
+	.card:hover .card-header{
+		opacity: 0.2;
+		height: 100px;
+	}
+
+	.card-header-is_closed{
+	background-color: #EF5A31 ;
+	color: #FFF ;
+	font-weight: bold ;
+	text-align: center ;
+	float: right;
+	margin: 100px 100px 0 0;
+	border-radius: 50%;
+	font-weight: bold;
+	padding: 10px 10px;
+	line-height: 20px;
+	}
+
+	h1 {
+	font-size: 22px;
+	font-weight: bold;
+	}
+
+	h2 {
+	font-size: 35px;
+	font-weight: bold;
+	}
+
+	.card-body {
+	}
+
+	.card-body-header{
+		line-height: 25px;
+		margin: 10px 20px 0px 20px;
+	}
+
+	.card-body-description{
+		opacity: 0;
+		color: #757B82;
+		line-height: 20px;
+		-webkit-transition: .2s ease-in-out; /*사파리&크롬*/
+		-moz-transition: .2s ease-in-out; /*파이어폭스*/
+		-ms-transition: .2s ease-in-out; /*익스플로러*/
+		-o-transition: .2s ease-in-out; /*오페라*/
+		transition : .2s ease-in-out;
+		overflow: hidden;
+		height: 20px;
+		margin: 50px 20px;
+	}
+
+	.card:hover .card-body-description {
+		opacity: 1;
+		-webkit-transition: .5s ease-in-out;
+		-moz-transition: .5s ease-in-out;
+		-ms-transition: .5s ease-in-out;
+		-o-transition: .5s ease-in-out;
+		transition : .5s ease-in-out;
+		overflow: scroll;
+	}
+
+	.card-body-hashtag {
+		color: #2478FF;
+		font-style: italic;
+	}
+
+	.card-body-footer {
+		position: absolute;
+		margin-top: 15px;
+		margin-left: 15px;
+		margin-bottom: 6px;
+		bottom: 0;
+		width: 314px;
+		font-size: 14px;
+		color: #9FA5A8;
+		padding: 0 15px;
+	}
+
+	.reg_date {
+		float: right;
+	}
+	.box{
+   -ms-overflow-style: none;
+    }
+	.box::-webkit-scrollbar{
+		display:none;
+    }
+
+	/*카드 마우스 호버링 요약글 부분*/
+	.card-text p {
+		margin-top: 200px; /* 적절한 값을 사용하세요 */
+		margin-left: 30px;
+		margin-right: 30px;
+    }
+    /*카드 마우스 호버링 숨겨져잇는 버튼 위치*/
+	.card-button {
+		position: absolute;
+		bottom: 10px; /* 바닥(fixed bottom)에 고정 */
+		right: 25px; /* 오른쪽(fixed right)에 고정 */
+		opacity: 0; /* 초기에는 숨김 */
+		transition: opacity 0.5s ease-in-out; /* 부드러운 페이드 효과를 위한 트랜지션 */
+	}
+	/*카드 마우스 호버링 숨겨진 버튼 나타내기*/
+	.card:hover .card-button {
+		opacity: 1; /* 마우스를 올리면 투명도를 1로 변경하여 보이게 함 */
+	}
+	/*카드 마우스 호버링 버튼 디자인*/
+	.custom-btn {
+		width: 100px;
+		height: 40px;
+		color: #fff;
+		border-radius: 15px; /*버튼 얼마나 둥글게 만들건지*/
+		padding: 10px 25px;
+		font-family: 'Roboto';
+		font-weight: bold;
+		font-size: 16px;
+		background: transparent;
+		cursor: pointer; /*버튼위에 마우스 커서 올리면 모양 바뀌는것*/
+		transition: all 0.3s ease;
+		position: relative;
+		display: inline-block;
+		box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+		7px 7px 20px 0px rgba(0,0,0,.1),
+		4px 4px 5px 0px rgba(0,0,0,.1);
+		outline: none;
+	}
+	.btn-2 {
+		background: linear-gradient(0deg, rgba(100,100,100,1) 0%, rgba(211,211,211,1) 100%); /*버튼색 변경*/
+		border: none;
+		padding: 10px;
+		cursor: pointer;
+		color: #fff;
+	}
+	.btn-2:before {
+		height: 0%;
+		width: 2px;
+	}
+	.btn-2:hover {
+		box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+				  -4px -4px 6px 0 rgba(116, 125, 136, .5),
+		inset -4px -4px 6px 0 rgba(255,255,255,.2),
+		inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+	}
+    /* 맨 위로 스크롤 올려주는 버튼 */
+    #btn-back-to-top {
+        display: none;
+        position: fixed;
+        bottom: 40px;
+        right: 30px;
+        z-index: 9999;
+        border: none;
+        outline: none;
+        background-color: #555;
+        color: white;
+        cursor: pointer;
+        padding: 25px;
+        border-radius: 20px;
+    }
+    /* 가운데 컨테이너 뉴스 리스트자리 */
+    #btn-back-to-top:hover {
+        background-color: #333;
+    }
+    .eight h1 {
+        text-align:center;
+        font-size:32px; letter-spacing:3px;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr; /* 좌우 위치 지정 */
+        grid-template-rows: 25px 0px;
+        margin-top: 30px;
+        grid-gap: 22px;
+    }
+    .eight h1:after,.eight h1:before {
+        content: " ";
+        display: block;
+        border-bottom: 2px solid #ccc;
+        background-color:#f8f8f8;
+    }
+        /* 모바일에서만 적용되는 스타일 */
+    @media only screen and (max-width: 768px) {
+        /* 모바일 화면에서 적용되는 스타일 */
+        /* 뉴스 카드 설정 */
+        .card {
+            height: 550px;
+            width: 400px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-top: 30px;
+            margin-right: 15px;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            overflow: hidden;
+        }
+
+        .black {
+            width:70%;
+            flex-direction: row;
+            text-align: center;
+            font-size: 17px;
+            /* 모바일 네비게이션 바 스타일 설정 */
+        }
+        nav a {
+            display: inline-block;
+            z-index: 10;
+            width: 13%;
+            padding:1em 0;
+            position: relative;
+            cursor: pointer;
+            color: whitesmoke;
+            text-decoration: none;
+        }
+        .nine h1 {
+            text-align:center; font-size:35px; text-transform:uppercase; color:#222; letter-spacing:1px;
+            font-family:"Playfair Display", serif; font-weight:bold;
+        }
+        #btn-back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 2px;
+            right: 2px;
+            z-index: 9999;
+            border: none;
+            outline: none;
+            background-color: #555;
+            color: white;
+            cursor: pointer;
+            padding: 7px;
+            border-radius: 15px;
+        }
+        	/*카드 마우스 호버링 요약글 부분*/
+	    .card-text p {
+            margin-top: 10px; /* 적절한 값을 사용하세요 */
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+
+
+    }
+        /* 맨 위로 스크롤 올려주는 버튼 */
+        #btn-back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 40px;
+            right: 30px;
+            z-index: 9999;
+            border: none;
+            outline: none;
+            background-color: #555;
+            color: white;
+            cursor: pointer;
+            padding: 25px;
+            border-radius: 20px;
+        }
+        /* 가운데 컨테이너 뉴스 리스트자리 */
+        #btn-back-to-top:hover {
+            background-color: #333;
+        }
+        .eight h1 {
+            text-align:center;
+            font-size:32px; letter-spacing:3px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr; /* 좌우 위치 지정 */
+            grid-template-rows: 25px 0px;
+            margin-top: 30px;
+            grid-gap: 22px;
+        }
+        .eight h1:after,.eight h1:before {
+            content: " ";
+            display: block;
+            border-bottom: 2px solid #ccc;
+            background-color:#f8f8f8;
+        }
